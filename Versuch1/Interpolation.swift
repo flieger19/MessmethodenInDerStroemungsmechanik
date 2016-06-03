@@ -29,4 +29,18 @@ class Interpolation: NSObject {
         // return
         return lagrange
     }
+    
+    func creatX(start: Double, end: Double, step: Double) -> [Double] {
+        // setup variables
+        var x = [Double]()
+        var i =  start
+        
+        // loop
+        while i<=end {
+            x += [i]
+            i = i + step
+        }
+
+        return x
+    }
 }

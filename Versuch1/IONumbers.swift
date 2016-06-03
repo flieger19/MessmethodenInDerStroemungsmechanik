@@ -9,7 +9,7 @@
 import Foundation
 
 class IONumbers: NSObject {
-    
+    // read file line by lines
     func readeLines(start: Int, end: Int, row: Int) -> [Double] {
         // setup variables
         var myAppleScript = String()
@@ -35,6 +35,7 @@ class IONumbers: NSObject {
         return result
     }
     
+    // read file columns by columns
     func readeColumns(start: Int, end: Int, column: Int) -> [Double] {
         // setup variables
         var myAppleScript = String()
@@ -60,6 +61,7 @@ class IONumbers: NSObject {
         return result
     }
     
+    // write file columns by columns
     func writeColumns(value: Double, start: Int, end: Int, row: Int) {
         // setup variables
         var myAppleScript = String()
@@ -81,6 +83,7 @@ class IONumbers: NSObject {
         }
     }
     
+    // write file line by lines
     func writeLines(value: Double, start: Int, end: Int, column: Int) {
         // setup variables
         var myAppleScript = String()

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9E68D3771D01BBE200569B30 /* IONumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68D3761D01BBE200569B30 /* IONumbers.swift */; };
 		9E68D3791D01F28800569B30 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68D3781D01F28800569B30 /* Interpolation.swift */; };
+		9E68D37B1D01F4C900569B30 /* CircularCylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68D37A1D01F4C900569B30 /* CircularCylinder.swift */; };
+		9E68D37D1D01F84400569B30 /* Aerodynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68D37C1D01F84400569B30 /* Aerodynamic.swift */; };
 		9E6924E91CFD90A700FC3349 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6924E81CFD90A700FC3349 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		9E68D3761D01BBE200569B30 /* IONumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IONumbers.swift; sourceTree = "<group>"; };
 		9E68D3781D01F28800569B30 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		9E68D37A1D01F4C900569B30 /* CircularCylinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCylinder.swift; sourceTree = "<group>"; };
+		9E68D37C1D01F84400569B30 /* Aerodynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aerodynamic.swift; sourceTree = "<group>"; };
 		9E6924E51CFD90A700FC3349 /* Versuch1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Versuch1; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E6924E81CFD90A700FC3349 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +68,8 @@
 				9E6924E81CFD90A700FC3349 /* main.swift */,
 				9E68D3761D01BBE200569B30 /* IONumbers.swift */,
 				9E68D3781D01F28800569B30 /* Interpolation.swift */,
+				9E68D37A1D01F4C900569B30 /* CircularCylinder.swift */,
+				9E68D37C1D01F84400569B30 /* Aerodynamic.swift */,
 			);
 			path = Versuch1;
 			sourceTree = "<group>";
@@ -125,7 +131,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E68D37D1D01F84400569B30 /* Aerodynamic.swift in Sources */,
 				9E6924E91CFD90A700FC3349 /* main.swift in Sources */,
+				9E68D37B1D01F4C900569B30 /* CircularCylinder.swift in Sources */,
 				9E68D3771D01BBE200569B30 /* IONumbers.swift in Sources */,
 				9E68D3791D01F28800569B30 /* Interpolation.swift in Sources */,
 			);

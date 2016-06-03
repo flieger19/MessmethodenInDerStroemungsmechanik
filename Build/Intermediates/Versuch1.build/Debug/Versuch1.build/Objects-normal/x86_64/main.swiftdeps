@@ -5,12 +5,12 @@ provides-nominal:
 provides-member:
 provides-dynamic-lookup:
 depends-top-level:
-- "FloatLiteralType"
+- "IntegerLiteralType"
 - "IO"
-- "IONumbers"
 - "StringLiteralType"
 - "print"
-- "IntegerLiteralType"
+- "FloatLiteralType"
+- "IONumbers"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "readeLines"]

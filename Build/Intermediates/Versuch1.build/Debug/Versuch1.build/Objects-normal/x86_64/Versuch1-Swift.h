@@ -98,12 +98,27 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 
+SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
+@interface CircularCylinder : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (double)pressureDistribution:(double)p p_inf:(double)p_inf q_inf:(double)q_inf;
+- (double)contour:(double)phi;
+@end
+
+
 SWIFT_CLASS("_TtC8Versuch19IONumbers")
 @interface IONumbers : NSObject
 - (NSArray<NSNumber *> * _Nonnull)readeLines:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
 - (NSArray<NSNumber *> * _Nonnull)readeColumns:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
 - (void)writeColumns:(double)value start:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
 - (void)writeLines:(double)value start:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8Versuch113Interpolation")
+@interface Interpolation : NSObject
+- (double)lagrange:(double)x xi:(NSArray<NSNumber *> * _Nonnull)xi yi:(NSArray<NSNumber *> * _Nonnull)yi;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
