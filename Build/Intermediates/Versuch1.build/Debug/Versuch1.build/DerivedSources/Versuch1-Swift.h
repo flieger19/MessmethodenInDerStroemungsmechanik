@@ -100,7 +100,10 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC8Versuch19IONumbers")
 @interface IONumbers : NSObject
-- (NSArray<NSNumber *> * _Nonnull)input:(NSInteger)start end:(NSInteger)end location:(NSInteger)location;
+- (NSArray<NSNumber *> * _Nonnull)readeLines:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
+- (NSArray<NSNumber *> * _Nonnull)readeColumns:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
+- (void)writeColumns:(double)value start:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
+- (void)writeLines:(double)value start:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

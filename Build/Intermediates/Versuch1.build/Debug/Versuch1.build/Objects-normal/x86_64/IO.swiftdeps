@@ -8,20 +8,20 @@ provides-member:
 provides-dynamic-lookup:
 - "input"
 depends-top-level:
-- "IONumbers"
-- !private "+="
+- !private "NSAppleEventDescriptor"
+- !private "Array"
+- !private "!="
+- "NSObject"
 - "Double"
+- !private "StringLiteralType"
 - !private "NSDictionary"
 - !private "+"
+- !private "print"
 - "Int"
 - !private "String"
-- !private "StringLiteralType"
-- "NSObject"
+- !private "+="
 - !private "NSAppleScript"
-- !private "NSAppleEventDescriptor"
-- !private "!="
-- !private "Array"
-- !private "print"
+- "IONumbers"
 - !private "..."
 depends-member:
 - !private ["Ps9AnyObject", "Double"]

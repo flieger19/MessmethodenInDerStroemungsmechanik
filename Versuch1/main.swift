@@ -11,5 +11,5 @@ import Foundation
 print("START")
 
 let IO = IONumbers()
-print(IO.input(2, end: 15, location: 38))
-print(IO.input(2, end: 15, location: 39))
+print(IO.readeLines(2, end: 15, row: 38))
+print(IO.readeLines(2, end: 15, row: 39))
