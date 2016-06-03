@@ -1,0 +1,6 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
+options: "125f76621d4059cc342eb763737c6057"
+build_time: [518285380, 322866000]
+inputs:
+  "/Users/constantindullo/Documents/workspace/Versuch1/Versuch1/main.swift": [518282693, 0]
+  "/Users/constantindullo/Documents/workspace/Versuch1/Versuch1/IO.swift": [518285196, 0]
