@@ -98,11 +98,21 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 
+SWIFT_CLASS("_TtC8Versuch111Aerodynamic")
+@interface Aerodynamic : NSObject
+- (double)pressureDistribution:(double)p p_inf:(double)p_inf q_inf:(double)q_inf;
+- (double)dynamicPressure:(double)rho u:(double)u;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
 @interface CircularCylinder : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (double)pressureDistribution:(double)p p_inf:(double)p_inf q_inf:(double)q_inf;
 - (double)contour:(double)phi;
+- (double)xAxsisP:(double)x R:(double)R;
+- (double)yAxisP:(double)y R:(double)R;
+- (NSArray<NSNumber *> * _Nonnull)interpolateData:(NSArray<NSNumber *> * _Nonnull)x_m y_m:(NSArray<NSNumber *> * _Nonnull)y_m x_i:(NSArray<NSNumber *> * _Nonnull)x_i;
 @end
 
 
@@ -119,6 +129,7 @@ SWIFT_CLASS("_TtC8Versuch19IONumbers")
 SWIFT_CLASS("_TtC8Versuch113Interpolation")
 @interface Interpolation : NSObject
 - (double)lagrange:(double)x xi:(NSArray<NSNumber *> * _Nonnull)xi yi:(NSArray<NSNumber *> * _Nonnull)yi;
+- (NSArray<NSNumber *> * _Nonnull)creatX:(double)start end:(double)end step:(double)step;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

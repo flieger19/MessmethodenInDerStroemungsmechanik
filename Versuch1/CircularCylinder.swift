@@ -11,6 +11,7 @@ import Foundation
 class CircularCylinder: NSObject {
     // "Constructor"
     override init() {
+        super.init()
         //***************************************************************************************
         // setup Variables
         //***************************************************************************************
@@ -54,6 +55,7 @@ class CircularCylinder: NSObject {
         let density     = 1.18
         
         // classes
+        let inter = Interpolation()
         let numbers     = IONumbers()
         let aero        = Aerodynamic()
         
@@ -78,7 +80,7 @@ class CircularCylinder: NSObject {
         
         // boundary conditions
         u_inf = numbers.readeLines(2, end: 2, row: 6)[0]
-        u_inf = numbers.readeLines(2, end: 2, row: 7)[0]
+        p_inf = numbers.readeLines(2, end: 2, row: 7)[0]
         d_inf = numbers.readeLines(2, end: 2, row: 11)[0]
         
         
@@ -87,6 +89,22 @@ class CircularCylinder: NSObject {
         //***************************************************************************************
         print("calculate pressure Distribution for an circular cylinder d = " + String(d_inf) + "m and speed u_inf = " + String(u_inf) + "m/s")
         
+        // measurement
+        // contour
+        angle_i = inter.creatX(angle_m[0], end: angle_m[angle_m.count-1], step: 1)
+        p_s_a_i = self.interpolateData(angle_m, y_m: p_s_a_m, x_i: angle_i)
+        //x-Axsis
+        x_i = inter.creatX(x_m[0], end: x_m[x_m.count-1], step: 1)
+        p_s_x_i = self.interpolateData(x_m, y_m: p_s_x_m, x_i: x_i)
+        p_g_x_i = self.interpolateData(x_m, y_m: p_g_x_m, x_i: x_i)
+        //y-Axsis
+        y_i = inter.creatX(y_m[0], end: y_m[y_m.count-1], step: 1)
+        p_s_y_i = self.interpolateData(y_m, y_m: p_s_y_m, x_i: y_i)
+        p_g_y_i = self.interpolateData(y_m, y_m: p_g_y_m, x_i: y_i)
+            
+        // boundary conditions
+        q_inf = aero.dynamicPressure(density, u: u_inf)
+            
         
         //***************************************************************************************
         // write plot files
@@ -101,13 +119,13 @@ class CircularCylinder: NSObject {
     }
     
     // calculate pressure Distribution on the x-axis
-    func xAxsis(x: Double, R: Double) -> Double {
+    func xAxsisP(x: Double, R: Double) -> Double {
         
         return pow(R/x, 2)*(2 - pow(R/x, 2))
     }
     
     // calculate pressure Distribution on the y-axsis
-    func yAxis(y: Double, R: Double) -> Double {
+    func yAxisP(y: Double, R: Double) -> Double {
         
         return -pow(R/y, 2)*(2 + pow(R/y, 2))
     }
