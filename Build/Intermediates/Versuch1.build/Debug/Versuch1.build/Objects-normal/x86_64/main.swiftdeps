@@ -6,10 +6,10 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "FloatLiteralType"
-- "print"
-- "StringLiteralType"
-- "IONumbers"
 - "IO"
+- "IONumbers"
+- "StringLiteralType"
+- "print"
 - "IntegerLiteralType"
 depends-member:
 - ["Ps9AnyObject", "init"]
@@ -49,4 +49,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
-interface-hash: "bec244422297b9120c351503353ea4af"
+interface-hash: "09202279654cb792ec37bc23dfffb32e"
