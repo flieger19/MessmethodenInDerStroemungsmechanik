@@ -104,4 +104,8 @@ class IONumbers: NSObject {
             }
         }
     }
+    
+    func writeHeader(variables: NSArray, option: NSString, numberOfValues: Int, start: Int) {
+        <#function body#>
+    }
 }

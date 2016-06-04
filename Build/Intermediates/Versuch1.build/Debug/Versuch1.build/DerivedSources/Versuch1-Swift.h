@@ -111,7 +111,7 @@ SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (double)contour:(double)phi;
 - (double)xAxsisP:(double)x R:(double)R;
-- (double)yAxisP:(double)y R:(double)R;
+- (double)yAxsisP:(double)y R:(double)R;
 - (NSArray<NSNumber *> * _Nonnull)interpolateData:(NSArray<NSNumber *> * _Nonnull)x_m y_m:(NSArray<NSNumber *> * _Nonnull)y_m x_i:(NSArray<NSNumber *> * _Nonnull)x_i;
 @end
 
