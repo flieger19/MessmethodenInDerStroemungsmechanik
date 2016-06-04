@@ -112,16 +112,18 @@ SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
 - (double)contour:(double)phi;
 - (double)xAxsisP:(double)x R:(double)R;
 - (double)yAxsisP:(double)y R:(double)R;
-- (NSArray<NSNumber *> * _Nonnull)interpolateData:(NSArray<NSNumber *> * _Nonnull)x_m y_m:(NSArray<NSNumber *> * _Nonnull)y_m x_i:(NSArray<NSNumber *> * _Nonnull)x_i;
 @end
 
+@class NSArray;
+@class NSString;
 
 SWIFT_CLASS("_TtC8Versuch19IONumbers")
 @interface IONumbers : NSObject
-- (NSArray<NSNumber *> * _Nonnull)readeLines:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
-- (NSArray<NSNumber *> * _Nonnull)readeColumns:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
-- (void)writeColumns:(double)value start:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
-- (void)writeLines:(double)value start:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
+- (NSArray<NSNumber *> * _Nonnull)readeLines:(NSInteger)sheet start:(NSInteger)start end:(NSInteger)end row:(NSInteger)row;
+- (NSArray<NSNumber *> * _Nonnull)readeColumns:(NSInteger)sheet start:(NSInteger)start end:(NSInteger)end column:(NSInteger)column;
+- (void)writeColumns:(NSArray<NSNumber *> * _Nonnull)value sheet:(NSInteger)sheet start:(NSInteger)start column:(NSInteger)column;
+- (void)writeLines:(NSArray<NSNumber *> * _Nonnull)value sheet:(NSInteger)sheet start:(NSInteger)start row:(NSInteger)row;
+- (void)writeHeader:(NSArray * _Nonnull)variables option:(NSString * _Nonnull)option numberOfValues:(NSInteger)numberOfValues sheet:(NSInteger)sheet row:(NSInteger)row;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
