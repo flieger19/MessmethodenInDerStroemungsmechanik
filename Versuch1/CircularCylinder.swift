@@ -80,8 +80,8 @@ class CircularCylinder: NSObject {
         //***************************************************************************************
         print("read data from meassurement protocol")
         // contour
-        angle_m = numbers.readeLines(1, start: 2, end: 15, row: 38)
-        p_s_a_m = numbers.readeLines(1, start: 2, end: 15, row: 39)
+        angle_m = numbers.readeLines(1, start: 2, end: 21, row: 38)
+        p_s_a_m = numbers.readeLines(1, start: 2, end: 21, row: 39)
         
         // x-Axsis
         x_m = numbers.readeLines(1, start: 2, end: 14, row: 41)
@@ -121,14 +121,16 @@ class CircularCylinder: NSObject {
             cp_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_s_x_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_x_c += [self.xAxsisP(i, R: d_inf/2)]
             cg_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_g_x_m), p_inf: p_inf, q_inf: q_inf)]
+            cg_x_c += [1]
         }
         
         //y-Axsis
         y_i = inter.creatX(y_m[0], end: y_m[y_m.count-1], step: 1)
         for i in y_i {
-            cp_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_s_y_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            cp_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_s_y_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_y_c += [self.yAxsisP(i, R: d_inf/2)]
-            cg_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_g_y_m), p_inf: p_inf, q_inf: q_inf)]
+            cg_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_g_y_m), p_inf: p_inf, q_inf: q_inf)]
+            cg_y_c += [1]
         }
         
         // measurement
@@ -155,7 +157,7 @@ class CircularCylinder: NSObject {
         print("write plot files")
         
         // contour
-        var vars: NSArray = ["Winkel [°]", "realer Druckbeiwert", "theoretischer Druckbeiwert"]
+        var vars: NSArray = ["Winkel [°]", "cp real", "cp theoretisch"]
         numbers.writeHeader(vars, option: "POINT", numberOfValues: angle_i.count, sheet: 5, row: 1)
         
         numbers.writeColumns(angle_i, sheet: 5, start: 3, column: 1)
@@ -163,24 +165,44 @@ class CircularCylinder: NSObject {
         numbers.writeColumns(cp_a_c, sheet: 5, start: 3, column: 3)
         
         vars = ["0"]
-        numbers.writeHeader(vars, option: "POINT", numberOfValues: 51, sheet: 5, row: angle_i.count+3)
+        numbers.writeHeader(vars, option: "POINT", numberOfValues: angle_m.count, sheet: 5, row: angle_i.count+3)
         
         numbers.writeColumns(angle_m, sheet: 5, start: angle_i.count+4, column: 1)
         numbers.writeColumns(cp_a_m, sheet: 5, start: angle_i.count+4, column: 2)
         
         //x-Axsis
-        vars = ["x [mm]", "realer Druckbeiwert", "theoretischer Druckbeiwert"]
-        numbers.writeHeader(vars, option: "POINT", numberOfValues: angle_i.count, sheet: 5, row: 1)
+        vars = ["x [mm]", "cp real", "cp theoretisch", "cg real", "cg theoretisch"]
+        numbers.writeHeader(vars, option: "POINT", numberOfValues: x_i.count, sheet: 6, row: 1)
         
-        numbers.writeColumns(angle_i, sheet: 5, start: 3, column: 1)
-        numbers.writeColumns(cp_a_i, sheet: 5, start: 3, column: 2)
-        numbers.writeColumns(cp_a_c, sheet: 5, start: 3, column: 3)
+        numbers.writeColumns(x_i, sheet: 6, start: 3, column: 1)
+        numbers.writeColumns(cp_x_i, sheet: 6, start: 3, column: 2)
+        numbers.writeColumns(cp_x_c, sheet: 6, start: 3, column: 3)
+        numbers.writeColumns(cg_x_i, sheet: 6, start: 3, column: 4)
+        numbers.writeColumns(cg_x_c, sheet: 6, start: 3, column: 5)
         
         vars = ["0"]
-        numbers.writeHeader(vars, option: "POINT", numberOfValues: 51, sheet: 5, row: angle_i.count+3)
+        numbers.writeHeader(vars, option: "POINT", numberOfValues: x_m.count, sheet: 6, row: x_i.count+3)
         
-        numbers.writeColumns(angle_m, sheet: 5, start: angle_i.count+4, column: 1)
-        numbers.writeColumns(cp_a_m, sheet: 5, start: angle_i.count+4, column: 2)
+        numbers.writeColumns(x_m, sheet: 6, start: x_i.count+4, column: 1)
+        numbers.writeColumns(cp_x_m, sheet: 6, start: x_i.count+4, column: 2)
+        numbers.writeColumns(cg_x_m, sheet: 6, start: x_i.count+4, column: 4)
+        
+        //y-Axsis
+        vars = ["y [mm]", "cp real", "cp theoretisch", "cg real", "cg theoretisch"]
+        numbers.writeHeader(vars, option: "POINT", numberOfValues: y_i.count, sheet: 7, row: 1)
+        
+        numbers.writeColumns(y_i, sheet: 7, start: 3, column: 1)
+        numbers.writeColumns(cp_y_i, sheet: 7, start: 3, column: 2)
+        numbers.writeColumns(cp_y_c, sheet: 7, start: 3, column: 3)
+        numbers.writeColumns(cg_y_i, sheet: 7, start: 3, column: 4)
+        numbers.writeColumns(cg_y_c, sheet: 7, start: 3, column: 5)
+        
+        vars = ["0"]
+        numbers.writeHeader(vars, option: "POINT", numberOfValues: y_m.count, sheet: 7, row: y_i.count+3)
+        
+        numbers.writeColumns(y_m, sheet: 7, start: y_i.count+4, column: 1)
+        numbers.writeColumns(cp_y_m, sheet: 7, start: y_i.count+4, column: 2)
+        numbers.writeColumns(cg_y_m, sheet: 7, start: y_i.count+4, column: 4)
     }
     
     // calculate pressure Distribution on the contour

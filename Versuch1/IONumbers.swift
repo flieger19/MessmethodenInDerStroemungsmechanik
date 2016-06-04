@@ -69,7 +69,7 @@ class IONumbers: NSObject {
         
         for i in 0...(value.count-1) {
             // setup script
-            myAppleScript = "set res to 0 \n tell application \"Numbers\" \n  \t  tell document 1 \n  \t   \t  tell sheet " + String(sheet) + " \n  \t   \t   \t  tell table 1 \n  \t   \t   \t   \t  set (value of cell " + String(column) + " of row " + String(i+start) + " ) to " + String(value[i]) + "  \n  \t   \t   \t  end tell \n  \t   \t  end tell \n  \t  end tell \n end tell \n  \n return res \n "
+            myAppleScript = "set inf to 1000000000000 \n tell application \"Numbers\" \n  \t  tell document 1 \n  \t   \t  tell sheet " + String(sheet) + " \n  \t   \t   \t  tell table 1 \n  \t   \t   \t   \t  set (value of cell " + String(column) + " of row " + String(i+start) + " ) to " + String(value[i]) + "  \n  \t   \t   \t  end tell \n  \t   \t  end tell \n  \t  end tell \n end tell \n  \n return inf \n "
             
             // read data from Table
             if let scriptObject = NSAppleScript(source: myAppleScript) {
@@ -91,7 +91,7 @@ class IONumbers: NSObject {
         
         for i in 0...(value.count-1) {
             // setup script
-            myAppleScript = "set res to 0 \n tell application \"Numbers\" \n  \t  tell document 1 \n  \t   \t  tell sheet " + String(sheet) + " \n  \t   \t   \t  tell table 1 \n  \t   \t   \t   \t  set (value of cell " + String(i+start) + " of row " + String(row) + " ) to " + String(value[i]) + "  \n  \t   \t   \t  end tell \n  \t   \t  end tell \n  \t  end tell \n end tell \n  \n return res \n "
+            myAppleScript = "set inf to 1000000000000 \n tell application \"Numbers\" \n  \t  tell document 1 \n  \t   \t  tell sheet " + String(sheet) + " \n  \t   \t   \t  tell table 1 \n  \t   \t   \t   \t  set (value of cell " + String(i+start) + " of row " + String(row) + " ) to " + String(value[i]) + "  \n  \t   \t   \t  end tell \n  \t   \t  end tell \n  \t  end tell \n end tell \n  \n return inf \n "
             
             // read data from Table
             if let scriptObject = NSAppleScript(source: myAppleScript) {

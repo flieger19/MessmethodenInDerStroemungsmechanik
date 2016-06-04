@@ -12,7 +12,7 @@ class Aerodynamic: NSObject {
     
     // calculate generall pressure Distribution
     func pressureDistribution(p: Double, p_inf: Double, q_inf: Double) -> Double {
-        print((p - p_inf))
+        
         return (p - p_inf)/q_inf
     }
     
