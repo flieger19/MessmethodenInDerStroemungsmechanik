@@ -132,6 +132,8 @@ SWIFT_CLASS("_TtC8Versuch113Interpolation")
 @interface Interpolation : NSObject
 - (double)lagrange:(double)x xi:(NSArray<NSNumber *> * _Nonnull)xi yi:(NSArray<NSNumber *> * _Nonnull)yi;
 - (NSArray<NSNumber *> * _Nonnull)creatX:(double)start end:(double)end step:(double)step;
+- (double)spline:(NSArray<NSNumber *> * _Nonnull)xi a:(NSArray<NSNumber *> * _Nonnull)a inter:(double)inter;
+- (NSArray<NSNumber *> * _Nonnull)solve:(NSArray<NSNumber *> * _Nonnull)A :(NSArray<NSNumber *> * _Nonnull)B;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

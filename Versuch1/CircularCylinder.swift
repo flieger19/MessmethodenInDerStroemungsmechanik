@@ -80,8 +80,8 @@ class CircularCylinder: NSObject {
         //***************************************************************************************
         print("read data from meassurement protocol")
         // contour
-        angle_m = numbers.readeLines(1, start: 2, end: 21, row: 38)
-        p_s_a_m = numbers.readeLines(1, start: 2, end: 21, row: 39)
+        angle_m = numbers.readeLines(1, start: 2, end: 15, row: 38)
+        p_s_a_m = numbers.readeLines(1, start: 2, end: 15, row: 39)
         
         // x-Axsis
         x_m = numbers.readeLines(1, start: 2, end: 14, row: 41)
@@ -111,7 +111,8 @@ class CircularCylinder: NSObject {
         // contour
         angle_i = inter.creatX(angle_m[0], end: angle_m[angle_m.count-1], step: 1)
         for i in angle_i {
-            cp_a_i += [aero.pressureDistribution(inter.lagrange(i, xi: angle_m, yi: p_s_a_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            //cp_a_i += [aero.pressureDistribution(inter.lagrange(i, xi: angle_m, yi: p_s_a_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            cp_a_i += [aero.pressureDistribution(inter.spline(angle_m, a: p_s_a_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_a_c += [self.contour(i)]
         }
         
