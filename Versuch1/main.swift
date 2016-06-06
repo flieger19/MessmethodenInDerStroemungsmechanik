@@ -13,3 +13,5 @@ print("Appliaction Versuch 1 zur Auswertung des 1. Versuches des Labors Messmeth
 
 //let circularCylinder = CircularCylinder()
 let flatHalfBody = FlatHalfBody()
+
+print("FINISHED")
