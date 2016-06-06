@@ -114,6 +114,15 @@ SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
 - (double)yAxsisP:(double)y R:(double)R;
 @end
 
+
+SWIFT_CLASS("_TtC8Versuch112FlatHalfBody")
+@interface FlatHalfBody : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)readData;
+- (void)calcData;
+- (void)writeData;
+@end
+
 @class NSArray;
 @class NSString;
 
