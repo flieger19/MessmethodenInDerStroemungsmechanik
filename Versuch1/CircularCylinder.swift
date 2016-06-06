@@ -256,7 +256,7 @@ class CircularCylinder: NSObject {
     
     // calculate pressure Distribution on the x-axis
     func xAxsisP(x: Double, R: Double) -> Double {
-        print(R/x)
+        
         return pow(R/x, 2)*(2 - pow(R/x, 2))
     }
     
