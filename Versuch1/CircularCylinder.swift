@@ -109,6 +109,12 @@ class CircularCylinder: NSObject {
         
         // interpolation/culculation
         // contour
+        var itterator = angle_m.count-1
+        while itterator>0 {
+            angle_m += [angle_m.last! + (angle_m[itterator] - angle_m[itterator-1])]
+            p_s_a_m += [p_s_a_m[itterator-1]]
+            itterator -= 1
+        }
         angle_i = inter.creatX(angle_m[0], end: angle_m[angle_m.count-1], step: 1)
         for i in angle_i {
             //cp_a_i += [aero.pressureDistribution(inter.lagrange(i, xi: angle_m, yi: p_s_a_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
@@ -117,20 +123,38 @@ class CircularCylinder: NSObject {
         }
         
         //x-Axsis
+        for i in 0...x_m.count-1 {
+            if x_m[i] < 0 {
+                x_m[i] = x_m[i] - 25
+            } else {
+                x_m[i] = x_m[i] + 25
+            }
+        }
         x_i = inter.creatX(x_m[0], end: x_m[x_m.count-1], step: 1)
         for i in x_i {
-            cp_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_s_x_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            //cp_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_s_x_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            cp_x_i += [aero.pressureDistribution(inter.spline(x_m, a: p_s_x_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_x_c += [self.xAxsisP(i, R: d_inf/2)]
-            cg_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_g_x_m), p_inf: p_inf, q_inf: q_inf)]
+            //cg_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_g_x_m), p_inf: p_inf, q_inf: q_inf)]
+            cg_x_i += [aero.pressureDistribution(inter.spline(x_m, a: p_g_x_m, inter: i), p_inf: p_inf, q_inf: q_inf)]
             cg_x_c += [1]
         }
         
         //y-Axsis
+        for i in 0...y_m.count-1 {
+            if y_m[i] < 0 {
+                y_m[i] = y_m[i] - 25
+            } else {
+                y_m[i] = y_m[i] + 25
+            }
+        }
         y_i = inter.creatX(y_m[0], end: y_m[y_m.count-1], step: 1)
         for i in y_i {
-            cp_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_s_y_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            //cp_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_s_y_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
+            cp_y_i += [aero.pressureDistribution(inter.spline(y_m, a: p_s_y_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_y_c += [self.yAxsisP(i, R: d_inf/2)]
-            cg_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_g_y_m), p_inf: p_inf, q_inf: q_inf)]
+            //cg_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_g_y_m), p_inf: p_inf, q_inf: q_inf)]
+            cg_y_i += [aero.pressureDistribution(inter.spline(y_m, a: p_g_y_m, inter: i), p_inf: p_inf, q_inf: q_inf)]
             cg_y_c += [1]
         }
         
