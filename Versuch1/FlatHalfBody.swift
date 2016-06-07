@@ -35,6 +35,8 @@ class FlatHalfBody: NSObject {
     let inter       = Interpolation()
     let numbers     = IONumbers()
     let aero        = Aerodynamic()
+    let alg         = Algorithm()
+    
     
     //***************************************************************************************
     // constants
@@ -84,6 +86,10 @@ class FlatHalfBody: NSObject {
             phi_m += [phi2[i]]
             heigh += [heigh2[i]]
         }
+        
+        phi_m = alg.sortX(phi_m, y: heigh, z: pos).objectAtIndex(0) as! [Double]
+        heigh = alg.sortX(phi_m, y: heigh, z: pos).objectAtIndex(1) as! [Double]
+        pos = alg.sortX(phi_m, y: heigh, z: pos).objectAtIndex(2) as! [Double]
         
         // boundary conditions
         u_inf = numbers.readeLines(1, start: 2, end: 2, row: 6)[0]

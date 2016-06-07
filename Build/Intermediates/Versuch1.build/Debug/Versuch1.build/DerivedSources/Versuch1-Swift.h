@@ -105,10 +105,20 @@ SWIFT_CLASS("_TtC8Versuch111Aerodynamic")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSArray;
 
 SWIFT_CLASS("_TtC8Versuch19Algorithm")
 @interface Algorithm : NSObject
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull xValues;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull yValues;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull zValues;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithX:(NSArray<NSNumber *> * _Nonnull)x y:(NSArray<NSNumber *> * _Nonnull)y z:(NSArray<NSNumber *> * _Nonnull)z OBJC_DESIGNATED_INITIALIZER;
+- (void)exchange:(NSInteger)i j:(NSInteger)j;
+- (void)swapLeft:(NSInteger)index;
+- (void)isort;
+- (NSArray * _Nonnull)sortX:(NSArray<NSNumber *> * _Nonnull)x y:(NSArray<NSNumber *> * _Nonnull)y z:(NSArray<NSNumber *> * _Nonnull)z;
+- (NSArray * _Nonnull)sorted;
 @end
 
 
@@ -139,6 +149,7 @@ SWIFT_CLASS("_TtC8Versuch112FlatHalfBody")
 @property (nonatomic, readonly, strong) Interpolation * _Nonnull inter;
 @property (nonatomic, readonly, strong) IONumbers * _Nonnull numbers;
 @property (nonatomic, readonly, strong) Aerodynamic * _Nonnull aero;
+@property (nonatomic, readonly, strong) Algorithm * _Nonnull alg;
 @property (nonatomic, readonly) double unitChange;
 @property (nonatomic, readonly) double density;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -147,7 +158,6 @@ SWIFT_CLASS("_TtC8Versuch112FlatHalfBody")
 - (void)writeData;
 @end
 
-@class NSArray;
 @class NSString;
 
 SWIFT_CLASS("_TtC8Versuch19IONumbers")

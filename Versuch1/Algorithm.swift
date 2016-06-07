@@ -17,6 +17,10 @@ class Algorithm: NSObject {
     var zValues = [Double]()
     
     // Constructor
+    override init() {
+        super.init()
+    }
+    
     init(x: [Double], y: [Double], z: [Double]) {
         super.init()
         
