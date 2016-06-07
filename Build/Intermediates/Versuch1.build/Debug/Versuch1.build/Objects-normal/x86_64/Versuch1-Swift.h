@@ -173,6 +173,7 @@ SWIFT_CLASS("_TtC8Versuch19IONumbers")
 
 SWIFT_CLASS("_TtC8Versuch113Interpolation")
 @interface Interpolation : NSObject
+@property (nonatomic) NSInteger counter;
 - (double)lagrange:(double)x xi:(NSArray<NSNumber *> * _Nonnull)xi yi:(NSArray<NSNumber *> * _Nonnull)yi;
 - (NSArray<NSNumber *> * _Nonnull)creatX:(double)start end:(double)end step:(double)step;
 - (double)spline:(NSArray<NSNumber *> * _Nonnull)xi a:(NSArray<NSNumber *> * _Nonnull)a inter:(double)inter;

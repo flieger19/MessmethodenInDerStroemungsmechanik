@@ -15,8 +15,8 @@ class FlatHalfBody: NSObject {
     // variables
     //***************************************************************************************
     var pos         = [Double]()
-    var phi_m         = [Double]()
-    var phi_i         = [Double]()
+    var phi_m       = [Double]()
+    var phi_i       = [Double]()
     var heigh       = [Double]()
     var p_stat      = [Double]()
     var cp_m        = [Double]()
@@ -69,12 +69,12 @@ class FlatHalfBody: NSObject {
         var heigh2 = [Double]()
         
         print("read data from meassurement protocol")
-        pos1 = numbers.readeLines(1, start: 2, end: 9, row: 52)
-        phi1 = numbers.readeLines(1, start: 2, end: 9, row: 53)
-        heigh1 = numbers.readeLines(1, start: 2, end: 9, row: 54)
-        pos2 = numbers.readeLines(1, start: 2, end: 9, row: 55)
-        phi2 = numbers.readeLines(1, start: 2, end: 9, row: 56)
-        heigh2 = numbers.readeLines(1, start: 2, end: 9, row: 57)
+        pos1 = numbers.readeLines(1, start: 2, end: 10, row: 52)
+        phi1 = numbers.readeLines(1, start: 2, end: 10, row: 53)
+        heigh1 = numbers.readeLines(1, start: 2, end: 10, row: 54)
+        pos2 = numbers.readeLines(1, start: 2, end: 10, row: 55)
+        phi2 = numbers.readeLines(1, start: 2, end: 10, row: 56)
+        heigh2 = numbers.readeLines(1, start: 2, end: 10, row: 57)
         
         for i in 0...pos1.count-1 {
             pos += [pos1[i]]
@@ -87,9 +87,10 @@ class FlatHalfBody: NSObject {
             heigh += [heigh2[i]]
         }
         
-        phi_m = alg.sortX(phi_m, y: heigh, z: pos).objectAtIndex(0) as! [Double]
-        heigh = alg.sortX(phi_m, y: heigh, z: pos).objectAtIndex(1) as! [Double]
-        pos = alg.sortX(phi_m, y: heigh, z: pos).objectAtIndex(2) as! [Double]
+        let sortedData: NSArray = alg.sortX(phi_m, y: heigh, z: pos)
+        phi_m = sortedData.objectAtIndex(0) as! [Double]
+        heigh = sortedData.objectAtIndex(1) as! [Double]
+        pos = sortedData.objectAtIndex(2) as! [Double]
         
         // boundary conditions
         u_inf = numbers.readeLines(1, start: 2, end: 2, row: 6)[0]

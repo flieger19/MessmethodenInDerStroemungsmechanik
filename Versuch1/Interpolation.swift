@@ -12,6 +12,8 @@ import Accelerate
 
 class Interpolation: NSObject {
     
+    var counter = 0
+    
     func lagrange(x: Double, xi: [Double], yi: [Double]) -> Double {
         // setup variables
         var total = 1.0
@@ -125,6 +127,12 @@ class Interpolation: NSObject {
             }
         }
         
+        if counter <= 20 {
+            jl = 0
+        }
+        counter += 1
+        
+        print(jl)
         return f[jl]
     }
     
