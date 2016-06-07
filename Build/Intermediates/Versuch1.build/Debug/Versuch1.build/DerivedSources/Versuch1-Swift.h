@@ -106,6 +106,12 @@ SWIFT_CLASS("_TtC8Versuch111Aerodynamic")
 @end
 
 
+SWIFT_CLASS("_TtC8Versuch19Algorithm")
+@interface Algorithm : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
 @interface CircularCylinder : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;

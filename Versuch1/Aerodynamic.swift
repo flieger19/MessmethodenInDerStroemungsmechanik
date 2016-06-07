@@ -6,6 +6,7 @@
 //  Copyright © 2016 Constantin Dullo. All rights reserved.
 //
 
+import Cocoa
 import Foundation
 
 class Aerodynamic: NSObject {
