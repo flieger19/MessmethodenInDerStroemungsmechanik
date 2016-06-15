@@ -178,6 +178,7 @@ SWIFT_CLASS("_TtC8Versuch113Interpolation")
 - (NSArray<NSNumber *> * _Nonnull)creatX:(double)start end:(double)end step:(double)step;
 - (double)spline:(NSArray<NSNumber *> * _Nonnull)xi a:(NSArray<NSNumber *> * _Nonnull)a inter:(double)inter;
 - (NSArray<NSNumber *> * _Nonnull)solve:(NSArray<NSNumber *> * _Nonnull)A :(NSArray<NSNumber *> * _Nonnull)B;
+- (double)trapezoidalRule:(NSArray<NSNumber *> * _Nonnull)x y:(NSArray<NSNumber *> * _Nonnull)y start:(double)start end:(double)end;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

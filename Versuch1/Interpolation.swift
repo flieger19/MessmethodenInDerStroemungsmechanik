@@ -132,7 +132,6 @@ class Interpolation: NSObject {
         }
         counter += 1
         
-        print(jl)
         return f[jl]
     }
     
@@ -180,5 +179,21 @@ class Interpolation: NSObject {
                 grid[(row * columns) + column] = newValue
             }
         }
+    }
+    
+    func trapezoidalRule(x: [Double], y: [Double], start: Double, end: Double) -> Double {
+        // variables
+        var int = Double()
+        
+        for i in 0...x.count-2 {
+            if x[i+1] > end {
+                break
+            }
+            if x[i] >= start {
+                int += (x[i] - x[i+1])/2*(y[i] + y[i+1])
+            }
+        }
+        
+        return int
     }
 }

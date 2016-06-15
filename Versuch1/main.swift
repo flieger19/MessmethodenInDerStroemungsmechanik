@@ -11,7 +11,7 @@ import Foundation
 print("START")
 print("Appliaction Versuch 1 zur Auswertung des 1. Versuches des Labors Messmethoden in der Strömungsmechanik.")
 
-//let circularCylinder = CircularCylinder()
-let flatHalfBody = FlatHalfBody()
+let circularCylinder = CircularCylinder()
+//let flatHalfBody = FlatHalfBody()
 
 print("FINISHED")
