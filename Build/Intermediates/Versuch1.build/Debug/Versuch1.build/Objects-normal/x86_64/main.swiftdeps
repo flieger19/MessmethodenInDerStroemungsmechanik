@@ -5,10 +5,10 @@ provides-nominal:
 provides-member:
 provides-dynamic-lookup:
 depends-top-level:
-- "CircularCylinder"
-- "print"
 - "StringLiteralType"
 - "circularCylinder"
+- "print"
+- "CircularCylinder"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps11CVarArgType", "init"]

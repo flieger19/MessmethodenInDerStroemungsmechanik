@@ -21,6 +21,7 @@ class FlatHalfBody: NSObject {
     var p_stat      = [Double]()
     var cp_m        = [Double]()
     var cp_i        = [Double]()
+    var cp_c        = [Double]()
     
     
     // boundary conditions
@@ -43,6 +44,7 @@ class FlatHalfBody: NSObject {
     //***************************************************************************************
     let unitChange  = 9.809
     let density     = 1.18
+    let width       = 50/1000
     
     //***************************************************************************************
     // constructor
@@ -100,6 +102,9 @@ class FlatHalfBody: NSObject {
     
     func calcData() {
         print("calculate pressure Distribution for an flat half body")
+        // Variables
+        var phi = Double()
+        
         // boundary conditions
         q_inf = aero.dynamicPressure(density, u: u_inf)
         
@@ -113,6 +118,8 @@ class FlatHalfBody: NSObject {
         
         for i in phi_i {
             cp_i += [inter.spline(phi_m, a: cp_m, inter: i)]
+            phi = i*M_PI/180
+            cp_c += [-(sin(2*phi))/(M_PI-phi)-pow((sin(phi))/(M_PI-phi),2.0)]
         }
     }
     
@@ -124,11 +131,13 @@ class FlatHalfBody: NSObject {
         
         numbers.writeColumns(phi_i, sheet: 8, start: 3, column: 1)
         numbers.writeColumns(cp_i, sheet: 8, start: 3, column: 2)
+        numbers.writeColumns(cp_c, sheet: 8, start: 3, column: 3)
         
         vars = ["0"]
         numbers.writeHeader(vars, option: "POINT", numberOfValues: phi_m.count, sheet: 8, row: phi_i.count+3)
         
         numbers.writeColumns(phi_m, sheet: 8, start: phi_i.count+4, column: 1)
         numbers.writeColumns(cp_m, sheet: 8, start: phi_i.count+4, column: 2)
+        //numbers.writeColumns(0, sheet: 8, start: phi_i.count+4, column: 3)
     }
 }
