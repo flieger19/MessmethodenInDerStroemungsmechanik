@@ -126,8 +126,8 @@ SWIFT_CLASS("_TtC8Versuch116CircularCylinder")
 @interface CircularCylinder : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (double)contour:(double)phi;
-- (double)xAxsisP:(double)x R:(double)R;
-- (double)yAxsisP:(double)y R:(double)R;
+- (double)xAxsisP:(double)x;
+- (double)yAxsisP:(double)y;
 @end
 
 @class Interpolation;
@@ -142,6 +142,7 @@ SWIFT_CLASS("_TtC8Versuch112FlatHalfBody")
 @property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull p_stat;
 @property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull cp_m;
 @property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull cp_i;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull cp_c;
 @property (nonatomic) double u_inf;
 @property (nonatomic) double p_inf;
 @property (nonatomic) double q_inf;
@@ -152,6 +153,7 @@ SWIFT_CLASS("_TtC8Versuch112FlatHalfBody")
 @property (nonatomic, readonly, strong) Algorithm * _Nonnull alg;
 @property (nonatomic, readonly) double unitChange;
 @property (nonatomic, readonly) double density;
+@property (nonatomic, readonly) NSInteger width;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)readData;
 - (void)calcData;

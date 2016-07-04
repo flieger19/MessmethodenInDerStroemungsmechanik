@@ -156,9 +156,9 @@ class CircularCylinder: NSObject {
             //cp_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_s_x_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_x_i += [aero.pressureDistribution(inter.spline(x_m, a: p_s_x_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             if i < 1 && i > -1 {
-                cp_x_c += [self.xAxsisP(25/2, R: d_inf/2)]
+                cp_x_c += [self.xAxsisP(25/2)]
             } else {
-                cp_x_c += [self.xAxsisP(i/2, R: d_inf/2)]
+                cp_x_c += [self.xAxsisP(i/2)]
             }
             x_i += [i]
             //cg_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_g_x_m), p_inf: p_inf, q_inf: q_inf)]
@@ -170,9 +170,9 @@ class CircularCylinder: NSObject {
             //cp_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_s_x_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_x_i += [aero.pressureDistribution(inter.spline(x_m, a: p_s_x_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             if i < 1 && i > -1 {
-                cp_x_c += [self.xAxsisP(25/2, R: d_inf/2)]
+                cp_x_c += [self.xAxsisP(25/2)]
             } else {
-                cp_x_c += [self.xAxsisP(i/2, R: d_inf/2)]
+                cp_x_c += [self.xAxsisP(i/2)]
             }
             x_i += [i]
             //cg_x_i += [aero.pressureDistribution(inter.lagrange(i, xi: x_m, yi: p_g_x_m), p_inf: p_inf, q_inf: q_inf)]
@@ -193,7 +193,7 @@ class CircularCylinder: NSObject {
         for i in y_i {
             //cp_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_s_y_m) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cp_y_i += [aero.pressureDistribution(inter.spline(y_m, a: p_s_y_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
-            cp_y_c += [self.yAxsisP(i/2, R: d_inf/2)]
+            cp_y_c += [self.yAxsisP(i/2)]
             //cg_y_i += [aero.pressureDistribution(inter.lagrange(i, xi: y_m, yi: p_g_y_m), p_inf: p_inf, q_inf: q_inf)]
             cg_y_i += [aero.pressureDistribution(inter.spline(y_m, a: p_g_y_m, inter: i) + p_inf, p_inf: p_inf, q_inf: q_inf)]
             cg_y_c += [1]
@@ -280,18 +280,18 @@ class CircularCylinder: NSObject {
     // calculate pressure Distribution on the contour
     func contour(phi: Double) -> Double {
         
-        return 1 - 4*pow(sin(phi*M_PI/180), 2)
+        return 1 - 4*pow(sin(phi), 2)
     }
     
     // calculate pressure Distribution on the x-axis
-    func xAxsisP(x: Double, R: Double) -> Double {
+    func xAxsisP(x: Double) -> Double {
         
-        return pow(R/x, 2)*(2 - pow(R/x, 2))
+        return pow(1/x, 2)*(2 - pow(1/x, 2))
     }
     
     // calculate pressure Distribution on the y-axsis
-    func yAxsisP(y: Double, R: Double) -> Double {
+    func yAxsisP(y: Double) -> Double {
         
-        return -pow(R/y, 2)*(2 + pow(R/y, 2))
+        return -pow(1/y, 2)*(2 + pow(1/y, 2))
     }
 }
