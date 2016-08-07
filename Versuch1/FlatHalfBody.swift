@@ -98,6 +98,7 @@ class FlatHalfBody: NSObject {
         u_inf = numbers.readeLines(1, start: 2, end: 2, row: 6)[0]
         p_inf = numbers.readeLines(1, start: 2, end: 2, row: 7)[0]
         zero = numbers.readeLines(1, start: 2, end: 2, row: 51)[0]
+        //print(heigh)
     }
     
     func calcData() {
@@ -110,8 +111,10 @@ class FlatHalfBody: NSObject {
         
         
         for i in 0...pos.count-1 {
-            p_stat += [heigh[i]/zero*p_inf]
-            cp_m += [aero.pressureDistribution(p_stat[i], p_inf: p_inf, q_inf: q_inf)]
+            //p_stat += [((zero - heigh[i])/zero + 1)*p_inf]
+            p_stat += [(zero - heigh[i])*9.81 + p_inf]
+            print(p_stat[i])
+            cp_m += [aero.pressureDistribution(p_stat[i], p_inf: p_inf, q_inf: q_inf)]//*2.7450427615417365]
         }
         
         phi_i = inter.creatX(phi_m[0], end: phi_m[phi_m.count-1], step: 1)
@@ -119,7 +122,7 @@ class FlatHalfBody: NSObject {
         for i in phi_i {
             cp_i += [inter.spline(phi_m, a: cp_m, inter: i)]
             phi = i*M_PI/180
-            cp_c += [-(sin(2*phi))/(M_PI-phi)-pow((sin(phi))/(M_PI-phi),2.0)]
+            cp_c += [-(sin(2*phi))/(M_PI-phi)-pow(((sin(phi))/(M_PI-phi)),2.0)]
         }
     }
     

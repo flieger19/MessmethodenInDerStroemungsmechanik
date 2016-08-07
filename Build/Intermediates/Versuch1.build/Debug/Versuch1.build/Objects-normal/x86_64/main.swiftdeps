@@ -1,21 +1,17 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
-- "circularCylinder"
 - "flatHalfBody"
 provides-nominal:
 provides-member:
 provides-dynamic-lookup:
 depends-top-level:
-- "StringLiteralType"
-- "circularCylinder"
-- "CircularCylinder"
-- "flatHalfBody"
 - "print"
+- "StringLiteralType"
 - "FlatHalfBody"
+- "flatHalfBody"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps11CVarArgType", "init"]
-- ["C8Versuch116CircularCylinder", "init"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "init"]
 - ["Ps9Equatable", "init"]
@@ -26,7 +22,6 @@ depends-member:
 depends-nominal:
 - "Ps9AnyObject"
 - "Ps11CVarArgType"
-- "C8Versuch116CircularCylinder"
 - "Ps28CustomDebugStringConvertible"
 - "Ps23CustomStringConvertible"
 - "Ps9Equatable"
@@ -46,4 +41,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
-interface-hash: "81f1d6be2b79e8c45aad9e1cc899966b"
+interface-hash: "677e61978d87029f08897c14976136db"
